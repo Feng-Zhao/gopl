@@ -25,5 +25,8 @@ func main() {
 	http.HandleFunc("/headers", headers)
 
 	// 启动 server
-	http.ListenAndServe(":8090", nil)
+	err := http.ListenAndServe(":8090", nil)
+	if err != nil {
+		fmt.Println(err)
+	}
 }
