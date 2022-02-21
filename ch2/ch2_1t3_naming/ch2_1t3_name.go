@@ -1,4 +1,4 @@
-package main
+package ch2_1t3_naming
 
 import "fmt"
 
@@ -30,7 +30,7 @@ type myStruct struct {
 }
 
 // 函数声明(主函数)
-func main() {
+func f() {
 	// short naming -> name := value
 	// only be used in func
 	str := "hello"
@@ -41,4 +41,12 @@ func main() {
 func add(a int, b int) int {
 	fmt.Printf("the sum of a and b is: %d", a+b)
 	return a + b
+}
+
+func pointer() {
+	// 使用 & 来获取变量的地址->即,获取指针
+	p := &i
+	// 使用 * 来获取指针指向的值
+	*p = 2
+	fmt.Printf("%d", *p)
 }
