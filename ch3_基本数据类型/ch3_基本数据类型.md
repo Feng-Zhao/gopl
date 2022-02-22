@@ -40,3 +40,20 @@ func main() {
 ## 整型 float
 - 十进制下 float32 约为 6 位数, float64 约为 15 位数
 - 浮点值打印时的谓词 %g(自动规划精度) %f(无指数形式) %e(有指数形式)
+
+## 复数
+```go
+package main
+import "fmt"
+// complex 两种类型 complex64/complex128
+// 内部是使用 float32/float64 实现
+var x complex128 = complex(1, 2) // 复数 1+2i
+//var y complex64 = complex(3, 4)
+var y complex128 = complex(3, 4)
+
+func main() {
+	fmt.Println(x * y)
+	fmt.Println(real(x * y)) // 实部
+	fmt.Println(imag(x * y)) // 虚部
+}
+```
