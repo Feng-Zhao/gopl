@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unicode"
+)
 
 func main() {
 	s := "hello world, 你好世界!"
@@ -20,4 +23,6 @@ func main() {
 	// 原生字符串,即,按字面量解释的字符串,不理会转义字符\
 	b := `\n\t\b\a\r\n`
 	fmt.Printf("%s\n", b)
+
+	fmt.Printf("%s\n", string(unicode.ReplacementChar))
 }
