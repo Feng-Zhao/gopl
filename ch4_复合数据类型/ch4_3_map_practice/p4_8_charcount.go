@@ -9,9 +9,16 @@ import (
 	"unicode/utf8"
 )
 
+type charType string
+
+const digital charType = "digital"
+const letter charType = "letter"
+const other charType = "other"
+
 func main() {
 	counts := make(map[rune]int)
 	var utflen [utf8.UTFMax + 1]int // UTFMax 为 utf8 编码最大字节数
+	charTypeCount := map[charType]int64{digital: 0, letter: 0, other: 0}
 	invalid := 0
 
 	// 从 stdin 读取
@@ -34,6 +41,14 @@ func main() {
 			continue
 		}
 		// 统计 rune, 和 每种字节长度 rune 的出现次数
+		if unicode.IsDigit(r) {
+			charTypeCount[digital]++
+		} else if unicode.IsLetter(r) { // 这里中文字符也是算作 letter 的
+			charTypeCount[letter]++
+		} else {
+			charTypeCount[other]++
+		}
+
 		counts[r]++
 		utflen[n]++
 	}
@@ -46,6 +61,10 @@ func main() {
 		if i > 0 {
 			fmt.Printf("%d \t %d \t \n", i, n)
 		}
+	}
+	fmt.Printf("\ntype\tcount\n")
+	for k, v := range charTypeCount {
+		fmt.Printf("%s\t%d\n", k, v)
 	}
 	if invalid > 0 {
 		fmt.Printf("\n%d invalid UTF-8 characters\n", invalid)
