@@ -23,5 +23,6 @@ func main() {
 	} else {
 		panic(1)
 	}
-	fmt.Println("恢复之后还可以继续运行??") // 无法执行到这里
+	// 无法执行到这里
+	// fmt.Println("恢复之后还可以继续运行??")
 }
