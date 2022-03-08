@@ -39,3 +39,8 @@ func (r Receiver) funcName(argA string, argB string, args ...string) (resultA st
 ## 方法表达式
 
 可以不指定接收者实例,而把 类型.方法 赋值给变量.这个变量相当于一个函数,其第一个形参为接收者类型
+
+## 封装 encapsulation
+
+在 go 中被称为是否可导出
+使用结构体封装数据和行为,对外可见的使用大写字母开头,对外不可见的使用小写字母开头.

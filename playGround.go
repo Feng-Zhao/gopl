@@ -9,12 +9,16 @@ type S struct {
 }
 
 func main() {
+	// play1()
+}
+
+func play1() {
 	x := ^uint(0)
 	fmt.Printf("%#b\n", x)
 
 	slice := []int{0, 0, 0, 0}
 	fmt.Println(slice) // [0 0 0 0]
-	for i, _ := range slice {
+	for i := range slice {
 		slice[i] = 1
 	}
 	fmt.Println(slice) // 通过索引修改基本类型,有效果 [1 1 1 1]
@@ -31,7 +35,7 @@ func main() {
 	slice2[2] = S{X: 1}
 	fmt.Println(slice2) // 直接修改,有效果 [{1} {1} {1}]
 
-	for i, _ := range slice2 {
+	for i := range slice2 {
 		slice2[i].X = 2
 	}
 	fmt.Println(slice2) // 通过索引修改,有效果 [{2} {2} {2}]
